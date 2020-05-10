@@ -1,11 +1,15 @@
 def double_max(n):
-    answer = [] + [n[0]]
-    for probnii in n:
-        if answer[0] != probnii:
-            answer.append(probnii)
+    if n == []:
+        return 'ERROR'
+    answer = [n[0]] + [None]
+    for var in n:
+        if answer[0] != var:
+            answer[1] = var
             break
 
-    if len(answer) == 2:
+    try:
+        answer[0] / 1
+        answer[1] / 1
         for number in n:
             if number in answer:
                 continue
@@ -19,5 +23,11 @@ def double_max(n):
 
         return answer
 
-    else:
+    except:
         return 'ERROR'
+
+
+print(double_max([]))
+
+
+
