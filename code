@@ -1,5 +1,5 @@
 def double_max(n):
-    if n == []:
+    if len(n) < 2:
         return 'ERROR'
     answer = [n[0]] + [None]
     for var in n:
@@ -27,7 +27,25 @@ def double_max(n):
         return 'ERROR'
 
 
-print(double_max([]))
+
+
+def k_max(n, k):
+    if len(n) < k:
+        return 'Error'
+    answer = [n[0]]
+
+    for number in n:
+        if number not in answer:
+            answer = [number] + answer
+            for poz_number in range(0, len(answer) - 1):
+                if answer[poz_number] > answer[poz_number + 1]:
+                    answer[poz_number], answer[poz_number + 1] = answer[poz_number + 1], answer[poz_number]
+
+    if len(answer) < k:
+        return 'ERROR'
+
+    return answer[len(answer) - k:len(answer)]
+
 
 
 
