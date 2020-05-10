@@ -1,0 +1,29 @@
+def double_max(n):
+    array_set=set(n)
+    if len(set(n)) < 2:
+        return 'len Error'
+
+    answer = []
+    answer. append(max(array_set))
+    array_set. remove(answer[0])
+    answer. append(max(array_set))
+
+    return answer
+
+def max_sum(n,k):
+    array_set=set(n)
+    if len(set(n)) < k:
+        return 'len Error'
+
+    answer = []
+
+    for i in range(k):
+        answer.append(max(array_set))
+        array_set.remove(answer[i])
+
+    return answer
+
+print(double_max([1,100,354,65,8,9,100])==[354,100])
+print(double_max([1,1,1,1,1,1,])=='len Error')
+print(double_max([1,1,1,2,1,1,])==[2,1])
+print(max_sum([1,100,354,65,8,9,100],3)==[354,100,65])
