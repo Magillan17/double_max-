@@ -1,29 +1,23 @@
 def double_max(n):
-    array_set=set(n)
-    if len(set(n)) < 2:
-        return 'len Error'
+    answer = [] + [n[0]]
+    for probnii in n:
+        if answer[0] != probnii:
+            answer.append(probnii)
+            break
 
-    answer = []
-    answer. append(max(array_set))
-    array_set. remove(answer[0])
-    answer. append(max(array_set))
+    if len(answer) == 2:
+        for number in n:
+            if number in answer:
+                continue
+            delta_1 = number - answer[0]
+            delta_2 = number - answer[1]
 
-    return answer
+            if delta_1 > delta_2 and delta_1 > 0:
+                answer[0] = number
+            elif delta_2 > delta_1 and delta_2 > 0:
+                answer[1] = number
 
-def max_sum(n,k):
-    array_set=set(n)
-    if len(set(n)) < k:
-        return 'len Error'
+        return answer
 
-    answer = []
-
-    for i in range(k):
-        answer.append(max(array_set))
-        array_set.remove(answer[i])
-
-    return answer
-
-print(double_max([1,100,354,65,8,9,100])==[354,100])
-print(double_max([1,1,1,1,1,1,])=='len Error')
-print(double_max([1,1,1,2,1,1,])==[2,1])
-print(max_sum([1,100,354,65,8,9,100],3)==[354,100,65])
+    else:
+        return 'ERROR'
